@@ -1,4 +1,4 @@
-These scripts build enlightenment 0.25 for RHEL8 using an almalinux:8 docker
+These scripts build enlightenment [1] 0.25 for RHEL8 using an almalinux:8 docker
 image. E is sensitive to its installation prefix, so we're using the same paths
 in docker and on localhost.
 
@@ -15,3 +15,6 @@ Building & running
 ```
     /opt/TurboVNC/bin/vncserver :40 -wm $PWD/run.sh
 ```
+
+[1]
+https://www.enlightenment.org/
