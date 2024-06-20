@@ -5,6 +5,8 @@ cp -ar /e $HOME
 cd $HOME/e
 ./req.sh
 
+export CFLAGS="-O3 -ffast-math -march=native"
+
 (
   cd efl \
   && PREFIX=$PREFIX/i ../build-efl.sh
