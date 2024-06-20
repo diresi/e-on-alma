@@ -13,6 +13,7 @@ set -e
 )
 
 docker run \
+    --rm \
     -e PREFIX=$PWD \
     -e OWNER=$(id -u):$(id -g) \
     -v $PWD:/e \
