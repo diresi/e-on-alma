@@ -11,6 +11,10 @@ set -e
   && cd enlightenment \
   && patch -p1 < ../enlightenment-no-eeze.patch
 )
+[[ -d terminology ]] || (
+  git clone --branch v1.13.0 --depth 1 https://git.enlightenment.org/enlightenment/terminology.git \
+  && true
+)
 
 docker run \
     --rm \

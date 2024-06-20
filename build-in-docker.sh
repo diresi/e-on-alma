@@ -15,6 +15,10 @@ export CFLAGS="-O3 -ffast-math -march=native"
   cd enlightenment \
   && PREFIX=$PREFIX/i ../build-e.sh
 )
+(
+  cd terminology \
+  && PREFIX=$PREFIX/i ../build-terminology.sh
+)
 
 cd $PREFIX
 tar cfz /e/e.tar.gz .
