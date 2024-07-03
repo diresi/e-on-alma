@@ -1,0 +1,55 @@
+diff --git a/meson.build b/meson.build
+index 12312b047a26..58f52c420e08 100644
+--- a/meson.build
++++ b/meson.build
+@@ -293,7 +293,6 @@ dep_ecore_con        = dependency('ecore-con'       , required: true)
+ dep_ecore_input      = dependency('ecore-input'     , required: true)
+ dep_ecore_input_evas = dependency('ecore-input-evas', required: true)
+ dep_ecore_evas       = dependency('ecore-evas'      , required: true)
+-dep_ecore_audio      = dependency('ecore-audio'     , required: true)
+ dep_evas             = dependency('evas'            , required: true)
+ dep_edje             = dependency('edje'            , required: true)
+ dep_efreet           = dependency('efreet'          , required: true)
+diff --git a/src/bin/e_main.c b/src/bin/e_main.c
+index 7d9c7d56618d..2bb8b258cf25 100644
+--- a/src/bin/e_main.c
++++ b/src/bin/e_main.c
+@@ -806,10 +806,6 @@ main(int argc, char **argv)
+    TS("E_Powersave Init Done");
+    _e_main_shutdown_push(e_powersave_shutdown);
+ 
+-   TS("E_Sound Init");
+-   e_sound_init();
+-   _e_main_shutdown_push(e_sound_shutdown);
+-
+    TS("Screens Init");
+    if (!_e_main_screens_init())
+      {
+diff --git a/src/bin/meson.build b/src/bin/meson.build
+index ebffff5b4380..71880bf4fdd0 100644
+--- a/src/bin/meson.build
++++ b/src/bin/meson.build
+@@ -25,7 +25,6 @@ deps_e = [
+   dep_ecore_con,
+   dep_ecore_input,
+   dep_ecore_input_evas,
+-  dep_ecore_audio,
+   dep_evas,
+   dep_efreet,
+   dep_efreet_mime,
+@@ -227,7 +226,6 @@ src = [
+   'e_zoomap.c',
+   'e_zone.c',
+   'e_gesture.c',
+-  'e_sound.c',
+   'efx/efx_bumpmapping.c',
+   'efx/efx.c',
+   'efx/efx_fade.c',
+@@ -409,7 +407,6 @@ hdr = [
+   'e_zoomap.h',
+   'e_zone.h',
+   'e_gesture.h',
+-  'e_sound.h'
+ ]
+ 
+ if config_h.has('HAVE_WAYLAND') == true

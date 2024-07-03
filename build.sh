@@ -2,14 +2,15 @@
 set -e
 
 [[ -d efl ]] || (
-  git clone --branch v1.26.3 --depth 1 https://git.enlightenment.org/enlightenment/efl.git \
+  git clone --branch v-1.27.0 --depth 1 https://git.enlightenment.org/enlightenment/efl.git \
   && cd efl \
   && patch -p1 < ../efl-lua-5.3.patch
 )
 [[ -d enlightenment ]] || (
-  git clone --branch v0.25.4 --depth 1 https://git.enlightenment.org/enlightenment/enlightenment.git \
+  git clone --branch v-0.26.0 --depth 1 https://git.enlightenment.org/enlightenment/enlightenment.git \
   && cd enlightenment \
-  && patch -p1 < ../enlightenment-no-eeze.patch
+  && patch -p1 < ../enlightenment-no-eeze.patch \
+  && patch -p1 < ../enlightenment-no-sound.patch
 )
 
 docker run \
